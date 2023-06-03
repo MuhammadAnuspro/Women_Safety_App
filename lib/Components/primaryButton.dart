@@ -1,32 +1,34 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
- 
+import 'package:women_safety/utils/constrins.dart';
 
+// ignore: must_be_immutable
 class PrimaryButton extends StatelessWidget {
-
   final String title;
   final Function onPressed;
-  bool  isloading;
-
-  PrimaryButton({
-    required this.title,required this.onPressed,this.isloading = false
-  });
+  bool loading;
+  PrimaryButton(
+      {required this.title, required this.onPressed, this.loading = false});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 50,
+      height: 60,
       width: double.infinity,
-      child: ElevatedButton(onPressed: (){}, child: Text(title),
-      style: ElevatedButton.styleFrom(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(17),
-          
-        )
-      ),
+      child: ElevatedButton(
+        onPressed: () {
+          onPressed();
+        },
+        child: Text(
+          title,
+          style: TextStyle(fontSize: 18),
+        ),
+        style: ElevatedButton.styleFrom(
+          backgroundColor: primaryColor,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(30),
+          ),
+        ),
       ),
     );
-    
-
   }
 }

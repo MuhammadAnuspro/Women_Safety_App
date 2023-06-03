@@ -1,13 +1,11 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
 
 class FirebrigadeEmergency extends StatelessWidget {
+  _callNumber(String number) async {
+    await FlutterPhoneDirectCaller.callNumber(number);
+  }
 
-   _callNumber(String number) async{
-  await FlutterPhoneDirectCaller.callNumber(number);
-   }
   const FirebrigadeEmergency({super.key});
 
   @override
@@ -30,7 +28,10 @@ class FirebrigadeEmergency extends StatelessWidget {
                   gradient: LinearGradient(
                     begin: Alignment.topCenter,
                     end: Alignment.bottomRight,
-                    colors: [Color.fromARGB(255, 255, 181, 206), Colors.blueGrey],
+                    colors: [
+                      Color.fromARGB(255, 255, 181, 206),
+                      Colors.blueGrey
+                    ],
                   ),
                 ),
                 child: Padding(
@@ -38,7 +39,6 @@ class FirebrigadeEmergency extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      
                       CircleAvatar(
                         radius: 25,
                         child: Image.asset("assets/fire_fire.jpg"),
@@ -48,7 +48,7 @@ class FirebrigadeEmergency extends StatelessWidget {
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           crossAxisAlignment: CrossAxisAlignment.start,
-        
+
                           // crossAxisAlignment: CrossAxisAlignment.end,
                           children: [
                             Text(
@@ -64,8 +64,9 @@ class FirebrigadeEmergency extends StatelessWidget {
                                 "In Case Of Fire Emergency Call",
                                 style: TextStyle(
                                     color: Colors.white,
-                                    fontSize: MediaQuery.of(context).size.width *
-                                        0.035),
+                                    fontSize:
+                                        MediaQuery.of(context).size.width *
+                                            0.035),
                               ),
                             ),
                             Container(
@@ -78,14 +79,14 @@ class FirebrigadeEmergency extends StatelessWidget {
                                 child: Text(
                                   "1-6",
                                   style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize:
-                                          MediaQuery.of(context).size.width *
-                                              0.047,
-                                      color: Color.fromARGB(255, 255, 179, 205),
+                                    fontWeight: FontWeight.bold,
+                                    fontSize:
+                                        MediaQuery.of(context).size.width *
+                                            0.047,
+                                    color: Color.fromARGB(255, 255, 179, 205),
+                                  ),
                                 ),
                               ),
-                            ),
                             ),
                           ],
                         ),

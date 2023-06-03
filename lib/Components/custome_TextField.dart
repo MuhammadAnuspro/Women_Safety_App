@@ -1,34 +1,34 @@
 import 'package:flutter/material.dart';
 
-class CustomeTextFeild extends StatelessWidget {
+class CustomTextField extends StatelessWidget {
   final String? hintText;
   final TextEditingController? controller;
   final String? Function(String?)? validate;
-  final String? Function(String?)? onsave;
+  final Function(String?)? onsave;
   final int? maxLines;
-  final bool? isPassword;
-  final bool? enable;
+  final bool isPassword;
+  final bool enable;
   final bool? check;
-  final TextInputType? keyboardType;
-  final TextInputAction? textinputAction;
+  final TextInputType? keyboardtype;
+  final TextInputAction? textInputAction;
   final FocusNode? focusNode;
-  final Widget? Prefix;
-  final Widget? Suffix;
-  CustomeTextFeild({
-    this.controller,
-    this.enable = true,
-    this.focusNode,
-    this.hintText,
-    this.isPassword = false,
-    this.maxLines,
-    this.onsave,
-    this.Prefix,
-    this.Suffix,
-    this.textinputAction,
-    this.validate,
-    this.keyboardType,
-    this.check,
-  });
+  Widget? prefix;
+  Widget? suffix;
+
+  CustomTextField(
+      {this.controller,
+      this.check,
+      this.enable = true,
+      this.focusNode,
+      this.hintText,
+      this.isPassword = false,
+      this.keyboardtype,
+      this.maxLines,
+      this.onsave,
+      this.prefix,
+      this.suffix,
+      this.textInputAction,
+      this.validate});
 
   @override
   Widget build(BuildContext context) {
@@ -38,12 +38,13 @@ class CustomeTextFeild extends StatelessWidget {
       onSaved: onsave,
       focusNode: focusNode,
       controller: controller,
-      textInputAction: textinputAction,
-      keyboardType: keyboardType == null ? TextInputType.name : keyboardType,
+      textInputAction: textInputAction,
+      obscureText: isPassword == false ? false : isPassword,
+      keyboardType: keyboardtype == null ? TextInputType.name : keyboardtype,
       validator: validate,
       decoration: InputDecoration(
-        suffixIcon: Suffix,
-        prefixIcon: Prefix,
+        suffixIcon: suffix,
+        prefixIcon: prefix,
         labelText: hintText ?? "hint text..",
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(20),

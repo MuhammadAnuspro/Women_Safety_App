@@ -37,11 +37,22 @@ dependencies:
   carousel_slider:
   google_fonts:
   webview_flutter:
-  firebase_core:
   flutter_phone_direct_caller:
   url_launcher:
   fluttertoast:
   flutter_custom_clippers:
+  firebase_auth: ^3.9.0
+  cloud_firestore: ^3.4.9
+  liquid_progress_indicator: ^0.4.0
+  shared_preferences: ^2.0.15
+  sizer: ^2.0.15
+  permission_handler: ^10.0.2
+  contacts_service: ^0.6.3
+  sqflite: ^2.2.0+3
+  background_sms: ^0.0.4
+  geolocator: ^9.0.2
+  geocoding: ^2.0.5
+  flutter_animated_dialog: ^2.0.1
 
 dev_dependencies:
   flutter_test:

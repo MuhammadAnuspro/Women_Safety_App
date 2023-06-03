@@ -1,79 +1,76 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:women_safety/main.dart';
 import 'package:women_safety/widgets/home_widgets/safehome/safeHome.dart';
 import 'package:women_safety/widgets/live_safe.dart';
 
-import 'widgets/home_widgets/CustomeCarousel.dart';
-import 'widgets/home_widgets/customeAppBar.dart';
-import 'widgets/home_widgets/emergency.dart';
+import '../../widgets/home_widgets/CustomeCarousel.dart';
+import '../../widgets/home_widgets/customeAppBar.dart';
+import '../../widgets/home_widgets/emergency.dart';
 
-
-class  HomeScreen extends StatefulWidget {
+class HomeScreen extends StatefulWidget {
   @override
   State<HomeScreen> createState() => _HomeScreenState();
 }
 
 class _HomeScreenState extends State<HomeScreen> {
   //const HomeScreen({super.key});
-int qindex = 0;
+  int qindex = 0;
 
-getRandomQuote(){
-  Random random =Random();
-  
-  setState(() {
-    qindex = random.nextInt(6);
-  });
-}
-@override
-void initState() {
-  getRandomQuote();
-  super.initState();
-  
-}
+  getRandomQuote() {
+    Random random = Random();
+
+    setState(() {
+      qindex = random.nextInt(6);
+    });
+  }
+
+  @override
+  void initState() {
+    getRandomQuote();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: 
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Column(
-            children: [
-              CustomeAppBar(
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          children: [
+            CustomeAppBar(
                 quoteindex: qindex,
-                onTap: (){
+                onTap: () {
                   getRandomQuote();
-                  
-                }
-                
-
-              ),
-              Expanded(child: ListView(
+                }),
+            Expanded(
+              child: ListView(
                 shrinkWrap: true,
                 children: [
                   CustomeCarousel(),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: Text("Emergency call",style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-
-                    ),),
+                    child: Text(
+                      "Emergency call",
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
                   ),
-                  
                   Emergency(),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: Text("Explore LiveSafe",style: TextStyle(
+                    child: Text(
+                      "Explore LiveSafe",
+                      style: TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
-
-                      ),),
+                      ),
+                    ),
                   ),
                   Padding(
-                    padding:  EdgeInsets.only(top: 10),
+                    padding: EdgeInsets.only(top: 10),
                     child: LiveSafe(),
                   ),
                   Padding(
@@ -81,13 +78,11 @@ void initState() {
                     child: SafeHome(),
                   ),
                 ],
-              ),),
-              
-            ],
-          ),
+              ),
+            ),
+          ],
         ),
-      
-      
+      ),
     );
   }
 }
